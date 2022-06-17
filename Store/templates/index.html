@@ -1,32 +1,35 @@
-{% load static %}
+{% extends 'base.html' %}
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Product</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  </head>
-  <body>
+{% block content %}
+<div class = "container-fluid mt-3">
+  <div class = "row">
+    {% comment %} filter categories {% endcomment %}
+    <div class = "col-lg-2 mx-auto">
+      <div class = "list-group">
+        {% for category in categories %}
+          <a href = "/?category = {{category.id}}" class = "list-group-item list-gropu-item-action">{{category.name}}</a>
+        {% endfor %}
+      </div>
+
+    </div>
+    {% comment %} all product {% endcomment %}
+    <div id = "products" class = "col-lg-10 mx-auto">
+      <div class = "row mx-auto">
+        {% for product in products%}
+          <div class="card mx-auto" style="width: 18rem;">
+              <img src="{{product.image.url}}" class="card-img-top" alt="...">
+              <div class="card-body">
+              <h5 class="card-title">{{product.name}}
+              <h5 class="card-title">{{product.price}}
+
+              <p class="card-text">{{product.description}}</p>
+              <a href="#" class="btn btn-primary">Add To Cart</a>
+              </div>
+          </div>
+        {% endfor %}
+      </div>  
+</div>
+{% endblock content %}
 
 
 
-    {% for products in product%}
-        <div class="card" style="width: 18rem;">
-            <img src="{{products.image.url}} class="card-img-top" alt="...">
-            <div class="card-body">
-            <h5 class="card-title">{{products.name}}
-            <h5 class="card-title">{{products.price}}
-
-            <p class="card-text">{{products.description}}</p>
-            <a href="#" class="btn btn-primary">Add To Cart</a>
-            </div>
-        </div>
-    {% endfor %}
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-  </body>
-</html>
