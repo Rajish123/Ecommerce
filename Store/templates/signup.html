@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class ="col-lg-5 mx-auto border rounded pt-4">
+    <div class="alert alert-light border rounded" role="alert">
+        Create An Account
+      </div>
+    <form>
+        <!--First Name-->
+        <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="fname" class="form-control form-control-sm border rounded" id="fname" placeholder="First Name">
+        </div>
+
+        <!--Last Name-->
+        <div class="form-group">
+            <label for="lname">Password</label>
+            <input type="lname" class="form-control form-control-sm border rounded" id="lname" placeholder="Last Name">
+        </div>
+
+        <!--Email-->
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control form-control-sm border rounded" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        
+        <!--Password-->
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control form-control-sm border rounded" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+{% endblock content %}

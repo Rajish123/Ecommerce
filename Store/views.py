@@ -10,8 +10,8 @@ def Index(request):
     categories = Category.get_all_categories()
     # read string from url/server inthis case /?category = categoryId
     # read data that is passed to server
+    # get from query string.Here get data from /?category=
     categoryID = request.GET.get('category')
-    print(categoryID)
     if categoryID:
         products = Product.get_all_products_by_categoryid(categoryID)
     else:
