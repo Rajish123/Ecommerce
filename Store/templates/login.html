@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if messages %}
+  {% for message in messages %}
+      {{message}}
+  {% endfor %}
+{% endif %}
+
+<div class ="col-lg-5 mx-auto border rounded pt-4">
+    <div class="alert alert-light border rounded" role="alert">
+        Login
+      </div>
+    <form action = "" method = "POST">{% csrf_token %}
+        <!--Email-->
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control form-control-sm border rounded" name = 'email' id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        
+        <!--Password-->
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control form-control-sm border rounded" name = 'password' id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+{% endblock content %}

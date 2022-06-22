@@ -1,3 +1,4 @@
+from asyncore import read
 from django import forms
 from django.forms import ModelForm
 from Accounts.models import Customer
@@ -11,7 +12,7 @@ class CustomerForm(ModelForm):
 
     phone = PhoneNumberField(required = True)
     email = forms.EmailField(required = True,widget=forms.EmailInput)
-    password = forms.CharField(max_length=15, min_length=4,widget=forms.PasswordInput)
+    password = forms.CharField(max_length=15, min_length=4,widget=forms.PasswordInput())
 
 
 
@@ -55,7 +56,6 @@ class CustomerForm(ModelForm):
 
         customer = super(CustomerForm, self).save(commit=False)
         customer.password = make_password(customer.password)
-        # customer.set_password(self.cleaned_data['password1'])
         if(commit):
             customer.register()
 
