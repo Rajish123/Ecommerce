@@ -2,27 +2,47 @@
 
 {% block content %}
 
+{% if messages %}
+  {% for message in messages %}
+      {{message}}
+  {% endfor %}
+{% endif %}
+
+
+<form method = "POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type = "submit" value = "signUp">Sign up</button>
+</form>
+
+{% comment %} 
 <div class ="col-lg-5 mx-auto border rounded pt-4">
     <div class="alert alert-light border rounded" role="alert">
         Create An Account
       </div>
-    <form>
+    <form action = "" method = "POST">{% csrf_token %}
         <!--First Name-->
         <div class="form-group">
             <label for="fname">First Name</label>
-            <input type="fname" class="form-control form-control-sm border rounded" id="fname" placeholder="First Name">
+            <input type="text" class="form-control form-control-sm border rounded" name = 'fname' id="fname" placeholder="First Name">
         </div>
 
         <!--Last Name-->
         <div class="form-group">
-            <label for="lname">Password</label>
-            <input type="lname" class="form-control form-control-sm border rounded" id="lname" placeholder="Last Name">
+            <label for="lname">Last Name</label>
+            <input type="text" class="form-control form-control-sm border rounded" name = 'lname' id="lname" placeholder="Last Name">
+        </div>
+
+        <!--Phone-->
+        <div class="form-group">
+            <label for="lname">Phone</label>
+            <input type="text" class="form-control form-control-sm border rounded" name = 'phone' id="lname" placeholder="Last Name">
         </div>
 
         <!--Email-->
         <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control form-control-sm border rounded" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <input type="email" class="form-control form-control-sm border rounded" name = 'email' id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         
@@ -33,7 +53,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-</div>
+</div> {% endcomment %}
 
 
 {% endblock content %}
