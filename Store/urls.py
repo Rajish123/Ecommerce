@@ -1,8 +1,8 @@
 from django.urls import path
-from . import views
+from .views import index
 
 app_name = 'store'
 
 urlpatterns = [
-    path('',views.Index, name = 'index')
+    path('',index.IndexView.as_view(), name = 'index')
 ]
