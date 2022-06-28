@@ -2,6 +2,8 @@
 
 {% block content %}
 
+{% load cart %}
+
 {% if messages %}
   {% for message in messages %}
       {{message}}
@@ -30,7 +32,8 @@
               <div class="card-body">
               <h5 class="card-title">{{product.name}}
               <h5 class="card-title">{{product.price}}
-
+                <!-- request.session.cart returns cart object-->
+              {{product | is_in_cart:request.session.cart}}
               <form action = "/" method = "POST">
                 {% csrf_token %}
                 <!-- whenever add to cart button is pressed, product id is send to  server-->
