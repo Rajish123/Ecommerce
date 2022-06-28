@@ -23,6 +23,10 @@ class Login(View):
             flag = check_password(password,customer.password)
             # if password provided in login form matched with password in database returns True
             if flag:
+                # save user information in session after logging in
+                request.session['customer_id'] = customer.id
+                request.session['email'] = customer.email
+                # print(request.session.get('email'))
                 # successful logged in
                 messages.success(request,f"Login Successful")
                 return redirect('store:index')
@@ -30,4 +34,6 @@ class Login(View):
                 messages.info(request,f"Email or Password Invalid !")
         else:
             messages.info(request,f"Account not found with given email.")
+        return render(request,'login.html')
+        
 
