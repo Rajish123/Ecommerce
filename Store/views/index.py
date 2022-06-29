@@ -1,3 +1,4 @@
+from cmath import e
 from django.shortcuts import redirect, render
 from Store.models import *
 from django.views import View
@@ -10,6 +11,8 @@ class IndexView(View):
         # get product id from server which was send by user through add to cart
         # return product id
         product = request.POST.get('product')
+        # if user wants to deduct product from cart
+        remove = request.POST.get('remove')
         # access cart object from session
         # cart stored as dictionary
         cart = request.session.get('cart')
@@ -19,7 +22,14 @@ class IndexView(View):
             # here product id is passed, we get quantity
             quantity = cart.get(product)
             if quantity:
-                cart[product] = quantity + 1
+                if remove:
+                    # if quantity = 0 then remove product from cart
+                    if quantity <= 1:
+                        cart.pop(product)
+                    else:
+                        cart[product] = quantity - 1
+                else:
+                    cart[product] = quantity + 1
             else:
                 cart[product] = 1
         else:
@@ -35,6 +45,9 @@ class IndexView(View):
     
     def get(self,request):
         data = {}
+        cart = request.session.get('cart')
+        if not cart:
+            request.session['cart'] = {}
         products = None
         categories = Category.get_all_categories()
         # read string from url/server inthis case /?category = categoryId
