@@ -30,16 +30,36 @@
           <div class="card mx-auto" style="width: 18rem;">
               <img src="{{product.image.url}}" class="card-img-top" alt="...">
               <div class="card-body">
-              <h5 class="card-title">{{product.name}}
-              <h5 class="card-title">{{product.price}}
-                <!-- request.session.cart returns cart object-->
-              {{product | is_in_cart:request.session.cart}}
-              <form action = "/" method = "POST">
-                {% csrf_token %}
-                <!-- whenever add to cart button is pressed, product id is send to  server-->
-                <input hidden type = "text" name = 'product' value = '{{product.id}}'>
-                <input type = "submit" class="btn btn-primary" value = "Add To Cart">
-              </form>
+                <h5 class="card-title">{{product.name}}
+                <h5 class="card-title">{{product.price}}
+                  <!-- request.session.cart returns cart object-->
+                {% comment %} {{product | is_in_cart:request.session.cart}} {% endcomment %}
+              </div>
+
+              <div class = "card-footer p-0">
+                {% if product|is_in_cart:request.session.cart %}
+                  <div class = "row no-gutters">
+                    <form action = "/" class = "col-2" method = "POST">{% csrf_token %}
+                      <input hidden type = "text" name = 'product' value = '{{product.id}}'>
+
+                      <input hidden type = "text" name = 'remove' value = 'True'>
+                      <input type = "submit" value = " - " class = "col-2 btn btn-block btn-secondary">
+                    </form>
+                    <div class = "text-center col">{{product|cart_quantity:request.session.cart}} in cart</div>
+                      <form action = "/" class = "col-2" method = "POST">{% csrf_token %}
+                        <input hidden type = "text" name = 'product' value = '{{product.id}}'>
+                        <input type = "submit" value = " + " class = "col-2 btn btn-block btn-secondary">
+                      </form
+                    </div>
+                {% else %}
+                  <form action = "/" method = "POST" class ='btn-block'>
+                    {% csrf_token %}
+                    <!-- whenever add to cart button is pressed, product id is send to  server-->
+                    <input hidden type = "text" name = 'product' value = '{{product.id}}'>
+                    <input type = "submit" class="btn btn-primary" value = "Add To Cart">
+                  </form>
+                {% endif %}
+
               </div>
           </div>
         {% endfor %}
