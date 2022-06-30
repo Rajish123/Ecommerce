@@ -20,3 +20,16 @@ def cart_quantity(product,cart):
             # returns value i.e, quantity
             return cart.get(id)
     return 0;
+
+# calculate total price of produce
+@register.filter(name = 'price_total')
+def price_total(product,cart):
+    return product.price * cart_quantity(product,cart)
+
+# calculate overall total
+@register.filter(name = 'total_cart_price')
+def total_cart_price(products,cart):
+    sum = 0
+    for p in products:
+        sum += price_total(p,cart)
+    return sum
