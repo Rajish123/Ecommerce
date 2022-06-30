@@ -31,12 +31,12 @@
 
 
         <ul class=" navbar-nav my-2 my-lg-0">
-          {% if request.session.customer %}
 
           <li class="nav-item ">
             <a class="nav-link" href="/cart">Cart 
               <span class="badge badge-info">{{request.session.cart.keys|length}}</span></a>
           </li>
+          {% if request.session.customer %}
           
           <li class="nav-item ">
             <a class="nav-link" href="/orders">Orders</a>
