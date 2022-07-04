@@ -3,6 +3,7 @@
 {% block content %}
 
 {% load cart %}
+{% load custom_filter %}
 
 {% if messages %}
   {% for message in messages %}
@@ -31,7 +32,7 @@
               <img src="{{product.image.url}}" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">{{product.name}}
-                <h5 class="card-title">{{product.price}}
+                <h5 class="card-title">{{product.price|currency}}
                   <!-- request.session.cart returns cart object-->
                 {% comment %} {{product | is_in_cart:request.session.cart}} {% endcomment %}
               </div>
