@@ -1,10 +1,13 @@
 from urllib import request
 from Orders.models import Order
 from django.views import View
-from django.shortcuts import redirect, render
+from django.shortcuts import render
+# from Store.middlewares.auth import auth_middleware
+# from django.utils.decorators import method_decorator
 
-# mport urllib.request
 class OrderView(View):
+    # alternative ways to use middleware is in urls.py
+    # @method_decorator(auth_middleware)
     def get(self, request):
         # return customer id
         customer = request.session.get('customer')
