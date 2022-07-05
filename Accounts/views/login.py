@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.contrib import messages
 from Accounts.models import Customer
 from django.contrib.auth.hashers import check_password
@@ -7,8 +7,11 @@ from django.views import View
 
 
 class Login(View):
+    return_url = None
 
     def get(self,request):
+        Login.return_url = request.GET.get('return_url')
+        print(f"Url is = {Login.return_url}")
         return render(request,'login.html')
 
     def post(self,request):
@@ -29,7 +32,12 @@ class Login(View):
                 # print(request.session.get('email'))
                 # successful logged in
                 messages.success(request,f"Login Successful")
-                return redirect('store:index')
+                if Login.return_url:
+                    return HttpResponseRedirect(Login.return_url)
+                else:
+                    Login.return_url = None
+                    # if you want to redirect using name then use redirect
+                    return redirect('store:index')
             else:
                 messages.info(request,f"Email or Password Invalid !")
         else:
