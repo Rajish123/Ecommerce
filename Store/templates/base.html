@@ -39,7 +39,7 @@
           {% if request.session.customer %}
           
           <li class="nav-item ">
-            <a class="nav-link" href="/orders">Orders</a>
+            <a class="nav-link" href="{% url 'order:orders' %}">Orders</a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="{% url 'account:logout' %}">Logout</a>
