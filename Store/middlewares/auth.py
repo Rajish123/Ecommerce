@@ -16,7 +16,7 @@ def auth_middleware(get_response):
         
         if not request.session.get('customer'):
             # now if you login you will be directly redircted to orders page
-            return redirect(f'/accounts/login?return_url = {returnUrl}')
+            return redirect(f'/accounts/login/?return_url={returnUrl}')
         response = get_response (request)
         return response
     return middleware
