@@ -20,4 +20,7 @@ class SignUp(View):
             form.save()
             messages.success(request,f"Account for {first_name} successfully created.")
             return redirect('store:index')
+        return render(request,'signup.html',{'form':form})
+        
+
 
