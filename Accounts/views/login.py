@@ -10,7 +10,7 @@ class Login(View):
     return_url = None
 
     def get(self,request):
-        Login.return_url = request.GET.get('return_url')
+        Login.return_url = request.GET.get('return_url','')
         print(f"Url is = {Login.return_url}")
         return render(request,'login.html')
 
