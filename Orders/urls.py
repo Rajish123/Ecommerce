@@ -5,7 +5,7 @@ from Store.middlewares.auth import auth_middleware
 app_name = 'order'
 
 urlpatterns = [
-    path('checkout',checkout.CheckOut.as_view(),name = 'checkout'),
+    path('checkout',auth_middleware(checkout.CheckOut.as_view()),name = 'checkout'),
     path('orders',auth_middleware(orders.OrderView.as_view()),name = 'orders')
 ]
 
