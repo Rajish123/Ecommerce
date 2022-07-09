@@ -29,6 +29,10 @@ class Product(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     @staticmethod
+    def get_product(id):
+        return Product.objects.get(id = id)
+
+    @staticmethod
     # here ids is list of product id
     def get_product_by_id(ids):
         return Product.objects.filter(id__in = ids)
