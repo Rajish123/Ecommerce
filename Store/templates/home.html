@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+{% load cart %}
+{% load custom_filter %}
+
+{% if messages %}
+  {% for message in messages %}
+      {{message}}
+  {% endfor %}
+{% endif %}
+
+<section id="shoe">
+  <h4>Trade-in-Offer</h4>
+  <h2>Super value deals</h2>
+  <h1>On all products</h1>
+  <p>save more with 25% discount</p>
+  <button>Shop Now</button>
+</section>
+<section id="features" class="section-p1">
+  <div class="fe-box">
+      <img src="{% static '/images/features/1.png' %}" alt="" width="200px" , height="200px">
+      <h4>free delivery</h4>
+  </div>
+  <div class="fe-box">
+      <img src="{% static '/images/features/2.png' %}" alt="" width="200px" , height="200px">
+      <h4>Online Order</h4>
+  </div>
+  <div class="fe-box">
+      <img src="{% static '/images/features/3.png' %}" alt="" width="200px" , height="200px">
+      <h4>Save Money</h4>
+  </div>
+  <div class="fe-box">
+      <img src="{% static '/images/features/4.png' %}" alt="" width="200px" , height="200px">
+      <h4>Sale</h4>
+  </div>
+  <div class="fe-box">
+      <img src="{% static '/images/features/5.jpg' %}" alt="" width="200px" , height="200px">
+      <h4>Sales</h4>
+  </div>
+</section>
+    <!-- Products-->
+    <section id="product1" class="section-p1">
+      <h2>Featured Products</h2>
+      <p>Summer Collection New Modern Design</p>
+      <div class="pro-container">
+        {% for product in products %}
+          <div class="pro">
+              <img src="{{product.image.url}}" alt="">
+              <div class="des">
+                  <span>{{product.category}}</span>
+                  <h3>{{product.name}}</h3>
+                  <h4>{{product.price|currency}}</h4>
+              </div>
+          </div>
+        {% endfor %}
+      </div>
+  </section>
+  <!--Banner-->
+  <section id="banner" class="section-m1">
+    <h2>Sale</h2>
+    <h1>Up to <span>70%</span> off</h1>
+    <button>Explore More</button>
+  </section>
+  <section id="new" class="section-m1">
+    <h1>New Arrival</h1>
+    <p>Get the latest design shoes</p>
+    <div class="pro-container">
+      {% for product in products %}
+        <div class="pro">
+            <img src="{{product.image.url}}" alt="">
+            <div class="des">
+                <span>{{product.category}}</span>
+                <h3>{{product.name}}</h3>
+                <h4>{{product.price|currency}}</h4>
+            </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!--banner-->
+  <section id="sm-banner" class="section-m1">
+    <div class="banner-box">
+        <h3>crazy deals</h3>
+        <h1>buy 2 get 1 free</h1>
+        <button class="white">Learn More</button>
+    </div>
+    <div class="banner-box banner-box1">
+        <h3>spring/summer</h3>
+        <h1>upcoming season</h1>
+        <button class="white">Collection</button>
+    </div>
+  </section>
+  <section id="newsletter" class="section-m1">
+    <div class="newstext">
+        <h2>Sign Up for newsletter</h2>
+        <h4>Get Email updates about our latest shop and <span>special offer</span></h4>
+    </div>
+    <div class="form">
+        <input type="text" placeholder="Your email Address">
+        <button class="btn">Sign Up</button>
+    </div>
+  </section>
+
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
+{% endblock content %}
+
+
+
