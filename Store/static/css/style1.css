@@ -285,6 +285,7 @@ p {
     right: 10px;
 }
 
+
 #banner {
     display: flex;
     flex-direction: column;
@@ -702,4 +703,87 @@ footer a:hover {
 #marq marquee {
     padding: 10px;
     font-size: 20px;
+}
+
+/* login */
+#login-page {
+    padding: 20px;
+    text-align: center;
+    background-color: rgb(226, 227, 160);
+    margin-bottom: 20px;
+}
+
+#login-page .loginpage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-page .loginpage a {
+    text-decoration: none;
+}
+
+.box {
+    width: 400px;
+    padding: 50px;
+    background: rgb(225, 225, 170);
+    align-items: center;
+    border-radius: 30px;
+    box-shadow: 10px 10px 20px rgb(82, 53, 53);
+}
+
+.box h1 {
+    color: rgb(129, 115, 115);
+    font-weight: 45px;
+}
+
+.box span {
+    color: rgb(241, 16, 16);
+    cursor: pointer;
+}
+
+.box input[type="text"],
+.box input[type="password"] {
+    background: rgb(255, 255, 255);
+    display: block;
+    margin: 20px;
+    text-align: center;
+    padding: 10px;
+    width: 220px;
+    color: rgb(89, 86, 44);
+    border-radius: 16px;
+    transition: 0.25px;
+}
+
+.box input[type="submit"] {
+    border: 0;
+    background: rgb(198, 214, 115);
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px rgb(230, 233, 62);
+    padding: 14px;
+    outline: 2px;
+    color: rgb(0, 0, 0);
+    border-radius: 14px;
+    transition: 0.25px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.box input[type="submit"]:hover {
+    background: rgb(204, 247, 87);
+}
+
+.button-add {
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+}
+
+.btn {
+    padding: 6px;
+    border-radius: 5px;
+    border: none;
+    background: #ccc;
 }

@@ -63,5 +63,5 @@ class IndexView(View):
         data['categories'] = categories
         # print the user information that is stored in session after logging in.
         print(f"The current user is {request.session.get('email')}")
-        return render(request,'product.html',data)
+        return render(request,'index.html',data)
     
