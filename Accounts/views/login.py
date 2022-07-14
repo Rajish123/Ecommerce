@@ -37,7 +37,7 @@ class Login(View):
                 else:
                     Login.return_url = None
                     # if you want to redirect using name then use redirect
-                    return redirect('store:index')
+                    return redirect('store:home')
             else:
                 messages.info(request,f"Email or Password Invalid !")
         else:
