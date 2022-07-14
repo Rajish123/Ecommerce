@@ -8,12 +8,43 @@
   {% endfor %}
 {% endif %}
 
+    <section id="login-page">
+        <div class="loginpage">
+            <form class="box" action="" method="post">
+                {% csrf_token %}
+                <h1>Sign Up</h1>
+                <label for="first_name" name = "first_name">First Name</label>
+                {{form.first_name}}
+                {% comment %} <input type="text" name="first_name" id = "first_name" placeholder="First Name"> {% endcomment %}
+                <label for = "last_name" name = "last_name">Last Name</label>
+                {{form.last_name}}
+                {% comment %} <input type="text" name="last_name" id = "last_name" placeholder="Last Name"> {% endcomment %}
+                <label for = "phone" name = "phone">Phone</label>
+                {{form.phone}}
+                {% comment %} <input type="text" name="phone" id = "phone" placeholder="phone" > {% endcomment %}
+                <label for = "email" name = "email">Email Address</label>
+                {{form.email}}
+                {% comment %} <input type="email" name="email" id = "email" placeholder="your email"> {% endcomment %}
+                <label for = "password" name = "password">Password</label>
+                {{form.password}}
+                {% comment %} <input type="password" name="password" id = "password" placeholder="Enter Password"> {% endcomment %}
+                <input type="submit" name="" value="Sign Up">
+                <p>Already have an account<span><a href="login.html"> Login Now</a> </span></p>
+            </form>
+        </div>
+    </section>
+    <section id="newsletter" class="section-m1">
+        <div class="newstext">
+            <h2>Sign Up for newsletter</h2>
+            <h4>Get Email updates about our latest shop and <span>special offer</span></h4>
+        </div>
 
+{% comment %} 
 <form method = "POST">
     {% csrf_token %}
     {{form.as_p}}
     <button type = "submit" value = "signUp">Sign up</button>
-</form>
+</form> {% endcomment %}
 
 {% comment %} 
 <div class ="col-lg-5 mx-auto border rounded pt-4">

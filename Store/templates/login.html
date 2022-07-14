@@ -8,26 +8,27 @@
   {% endfor %}
 {% endif %}
 
-<div class ="col-lg-5 mx-auto border rounded pt-4">
-    <div class="alert alert-light border rounded" role="alert">
-        Login
-      </div>
-    <form action = "" method = "POST">{% csrf_token %}
-        <!--Email-->
-        <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control form-control-sm border rounded" name = 'email' id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <section id="login-page">
+        <div class="loginpage">
+            <form class="box" action="" method="post">
+                {% csrf_token %}
+                <h1>Login</h1>
+                <input type="email" name="email" placeholder="smthng@email.com">
+                <input type="password" name="password" placeholder="Enter Password">
+                <input type="submit" name="" value="Login">
+                <p>don't have an account <span><a href="{% url 'account:signup' %}">Create Now</a> </span></p>
+            </form>
         </div>
-        
-        <!--Password-->
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control form-control-sm border rounded" name = 'password' id="exampleInputPassword1" placeholder="Password">
+    </section>
+    <section id="newsletter" class="section-m1">
+        <div class="newstext">
+            <h2>Sign Up for newsletter</h2>
+            <h4>Get Email updates about our latest shop and <span>special offer</span></h4>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</div>
-
+        <div class="form">
+            <input type="text" placeholder="Your email Address">
+            <button class="btn">Sign Up</button>
+        </div>
+    </section>
 
 {% endblock content %}
