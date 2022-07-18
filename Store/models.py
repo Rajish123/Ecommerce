@@ -1,4 +1,5 @@
 from django.db import models
+from PIL import Image
 
 # Create your models here.
 class Category(models.Model):
@@ -47,3 +48,14 @@ class Product(models.Model):
             return Product.objects.filter(category = category_id)
         else:
             return Product.get_all_products()
+
+    def save(self,*args,**kwargs):
+        super().save(*args,**kwargs)
+        img = Image.open(self.image.path)
+        if img.height > 200 or img.width > 200:
+            output_size = (150,150)
+            # resize previous image
+            img.thumbnail(output_size)
+            # override previous image
+            img.save(self.image.path)
+
