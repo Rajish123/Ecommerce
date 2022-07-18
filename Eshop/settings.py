@@ -133,3 +133,8 @@ MEDIA_URL = os.path.join(BASE_DIR, 'media/')
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'static/')
 
+# braintree
+BRAINTREE_MERCHANT_ID = config("Merchant_id")
+BRAINTREE_PUBLIC_KEY = config('Public_key')
+BRAINTREE_PRIVATE_KEY = config('Private_key')
+
