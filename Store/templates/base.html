@@ -190,13 +190,13 @@
             <div>
                 <ul id="navbar">
                     {% if request.session.customer %}
-                        <li><a class="active" href="{% url 'store:home' %}">Home</a></li>
+                        <li><a href="{% url 'store:home' %}">Home</a></li>
                         <li><a href="{% url 'store:index' %}">Shop</a></li>
                         <li><a href="{% url 'order:orders' %}">Order</a></li>
                         <li><a href="{% url 'account:logout' %}">Logout</a></li>
                         <li><a href="{% url 'store:cart' %}"><i class="fa-solid fa-cart-shopping"></i></a></li>
                     {% else %}
-                        <li><a class="active" href="{% url 'store:home' %}">Home</a></li>
+                        <li><a href="{% url 'store:home' %}">Home</a></li>
                         <li><a href="{% url 'store:index' %}">Shop</a></li>
                         <li><a href="{% url 'store:about' %}">About Us</a></li>
                         <li><a href="#">Contact</a></li>
