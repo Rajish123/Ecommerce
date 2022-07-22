@@ -11,7 +11,7 @@ class CustomerForm(ModelForm):
 
     class Meta:
         model = Customer
-        fields = ('first_name','last_name','phone','email','password1','password2')
+        fields = ('first_name','last_name','address','phone','email','password1','password2')
         widgets={
             'first_name': forms.TextInput(attrs={'class':'asd', 'placeholder':'First Name'}),
             'last_name': forms.TextInput(attrs={'class':'asd', 'placeholder':'Last Name'}),
