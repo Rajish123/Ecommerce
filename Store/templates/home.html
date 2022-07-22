@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 
 {% load static %}
+
+{% block title %}E-commerce|Home{% endblock %}
+
+
 {% block content %}
 
 {% load cart %}
@@ -46,7 +50,7 @@
       <h2>Featured Products</h2>
       <p>Summer Collection New Modern Design</p>
       <div class="pro-container">
-        {% for product in products %}
+        {% for product in products|slice:":4" %}
           <div class="pro">
               <img src="{{product.image.url}}" alt="">
               <div class="des">
@@ -68,7 +72,7 @@
     <h1>New Arrival</h1>
     <p>Get the latest design shoes</p>
     <div class="pro-container">
-      {% for product in products %}
+      {% for product in products|slice:":4" %}
         <div class="pro">
             <img src="{{product.image.url}}" alt="">
             <div class="des">

@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% load static %}
+{% block title %}E-commerce|Products{% endblock %}
+
 {% block content %}
 
 {% load cart %}
@@ -12,18 +14,19 @@
   {% endfor %}
 {% endif %}
 
-<section id="page-header">
+{% comment %} <section id="page-header">
   <h2>#Stay Home</h2>
   <p style = "color:rgb(223, 141, 53); font-size:30px;">Save your time and Money</p>
-</section>
+</section> {% endcomment %}
 <section id="product2" class="section-p1">
   <div class="category">
       <h2>Category</h2>
-      {% for category in categories %}
-      <h3><a href = "/?category={{category.id}}">{{category.name}}</a></h3>
-        {% comment %} <h3>{{category.name}}</h3> {% endcomment %}
-      {% endfor %}
-      </div>
+      <ul>
+        {% for category in categories %}  
+          <li><a href = "/?category={{category.id}}">{{category.name}}</a></li>
+          {% comment %} <h3>{{category.name}}</h3> {% endcomment %}
+        {% endfor %}
+  </div>
   <div class="pro-container">
     {% for product in products %}
       <div class="pro" onclick="';">

@@ -1,90 +1,20 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
-{% if messages %}
-  {% for message in messages %}
-      {{message}}
-  {% endfor %}
-{% endif %}
+<div class="auth-content"> 
 
-    <section id="login-page">
-        <div class="loginpage">
-            <form class="box" action="" method="post">
-                {% csrf_token %}
-                <h1>Sign Up</h1>
-                <label for="first_name" name = "first_name">First Name</label>
-                {{form.first_name}}
-                {% comment %} <input type="text" name="first_name" id = "first_name" placeholder="First Name"> {% endcomment %}
-                <label for = "last_name" name = "last_name">Last Name</label>
-                {{form.last_name}}
-                {% comment %} <input type="text" name="last_name" id = "last_name" placeholder="Last Name"> {% endcomment %}
-                <label for = "phone" name = "phone">Phone</label>
-                {{form.phone}}
-                {% comment %} <input type="text" name="phone" id = "phone" placeholder="phone" > {% endcomment %}
-                <label for = "email" name = "email">Email Address</label>
-                {{form.email}}
-                {% comment %} <input type="email" name="email" id = "email" placeholder="your email"> {% endcomment %}
-                <label for = "password" name = "password">Password</label>
-                {{form.password}}
-                {% comment %} <input type="password" name="password" id = "password" placeholder="Enter Password"> {% endcomment %}
-                <input type="submit" name="" value="Sign Up">
-                <p>Already have an account<span><a href="login.html"> Login Now</a> </span></p>
-            </form>
-        </div>
-    </section>
-    <section id="newsletter" class="section-m1">
-        <div class="newstext">
-            <h2>Sign Up for newsletter</h2>
-            <h4>Get Email updates about our latest shop and <span>special offer</span></h4>
-        </div>
-
-{% comment %} 
-<form method = "POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type = "submit" value = "signUp">Sign up</button>
-</form> {% endcomment %}
-
-{% comment %} 
-<div class ="col-lg-5 mx-auto border rounded pt-4">
-    <div class="alert alert-light border rounded" role="alert">
-        Create An Account
-      </div>
-    <form action = "" method = "POST">{% csrf_token %}
-        <!--First Name-->
-        <div class="form-group">
-            <label for="fname">First Name</label>
-            <input type="text" class="form-control form-control-sm border rounded" name = 'fname' id="fname" placeholder="First Name">
-        </div>
-
-        <!--Last Name-->
-        <div class="form-group">
-            <label for="lname">Last Name</label>
-            <input type="text" class="form-control form-control-sm border rounded" name = 'lname' id="lname" placeholder="Last Name">
-        </div>
-
-        <!--Phone-->
-        <div class="form-group">
-            <label for="lname">Phone</label>
-            <input type="text" class="form-control form-control-sm border rounded" name = 'phone' id="lname" placeholder="Last Name">
-        </div>
-
-        <!--Email-->
-        <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control form-control-sm border rounded" name = 'email' id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
+    <h1 class="form-title">Create an Account</h1>
+    <br><br><br>
+    <form method="post">
+        {% csrf_token %}
+    <div class="container">
+        {{form.as_p}}
+        <input type="submit" class="btn" value="Sign Up">
+        <br><br>
+        <p>Already have an account? <a href="">Login</a></p>
         
-        <!--Password-->
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control form-control-sm border rounded" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+    
+    </div>
     </form>
-</div> {% endcomment %}
-
-
+</div>
 {% endblock content %}

@@ -44,8 +44,10 @@
         <div class = "m-3 p-3">
             <!-- Button trigger modal -->
             <!-- Modal is trigged due to this two button properties i.e, data-toggle and data-target-->
-            <a href = "{% url 'order:checkout_page' %}" data-toggle="modal" data-target="#exampleModal" class = "btn btn-outline-info border rounded col-lg-3 float-right">Check Out</a>
-        </div>
+            {% comment %} <a href = "{% url 'order:checkout' %}" data-toggle="modal" data-target="#exampleModal" class = "btn btn-outline-info border rounded col-lg-3 float-right">Check Out</a> {% endcomment %}
+            <a href = "{% url 'order:checkout' %}"<button class="btn">Check Out</button></a>
+          
+          </div>
     </div>
 
 </div>
@@ -61,12 +63,12 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-        </div>
+        </div> {% endcomment %}
 
 
-        <div class="modal-body">
+        {% comment %} <div class="modal-body">
           <div class = "m-2 p-3">
-              <form action = "{% url 'order:checkout_page' %}" method = "POST">
+              <form action = "{% url 'order:checkout' %}" method = "POST">
                   {% csrf_token %}
                   <div class="form-group">
                     <label for="">Address</label>
@@ -80,8 +82,8 @@
               </form>
           </div>
         </div>
-      </div>
-    </div> {% endcomment %}
-  </div>
+      </div> {% endcomment %}
+    {% comment %} </div>
+  </div> {% endcomment %}
 
 {% endblock content %}

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
@@ -8,9 +9,31 @@
   {% endfor %}
 {% endif %}
 
-    <section id="login-page">
+    <form action="" method="post">{% csrf_token %}
+        <div class="imgcontainer">
+            <img src="{% static 'images/avatar.png' %}" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="container">
+            <label for="email"><b>Email</b></label>
+            <input type="email" placeholder="Enter Email" name="email" required>
+
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+        
+            <button type="submit">Login</button>
+        </div>
+        <div class="container" style="background-color:#f1f1f1">
+            
+            <br>
+            <a href="{% url 'account:signup' %}" class ="signupbtn">SignUp</a>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+    </form>
+
+    {% comment %} <section id="login-page">
         <div class="loginpage">
-            <form class="box" action="" method="post">
+            <form class="box" action="" method="post">re
                 {% csrf_token %}
                 <h1>Login</h1>
                 <input type="email" name="email" placeholder="smthng@email.com">
@@ -29,6 +52,6 @@
             <input type="text" placeholder="Your email Address">
             <button class="btn">Sign Up</button>
         </div>
-    </section>
+    </section> {% endcomment %}
 
 {% endblock content %}
