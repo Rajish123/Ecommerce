@@ -5,5 +5,5 @@ from .models import Order
 # Register your models here.
 @admin.register(Order)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('product','customer','quantity','price','address','phone','date',)
+    list_display = ('product','customer','quantity','price','date','status','paid','braintree_id')
 
