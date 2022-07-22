@@ -218,7 +218,7 @@ p {
 }
 
 #product1 .pro {
-    width: 23%;
+    width: 10%;
     min-width: 250px;
     padding: 10px;
     margin-bottom: 20px;
@@ -233,7 +233,8 @@ p {
 }
 
 #product1 .pro img {
-    width: 100%;
+    width: 50%;
+    height: 100%;
     border-radius: 20px;
 }
 
@@ -275,7 +276,7 @@ p {
 
 #product1 .pro .cart {
     width: 40px;
-    height: 40px;
+    height: px;
     line-height: 40px;
     border-radius: 50px;
     background-color: rgb(241, 244, 235);
@@ -706,7 +707,18 @@ footer a:hover {
 }
 
 /* login */
-#login-page {
+  
+  /* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+}
+.cancelbtn {
+    width: 100%;
+}
+}
+/* #login-page {
     padding: 20px;
     text-align: center;
     background-color: rgb(226, 227, 160);
@@ -721,7 +733,7 @@ footer a:hover {
 
 #login-page .loginpage a {
     text-decoration: none;
-}
+} */
 
 .box {
     width: 400px;
@@ -787,3 +799,4 @@ footer a:hover {
     border: none;
     background: #ccc;
 }
+
