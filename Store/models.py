@@ -52,8 +52,8 @@ class Product(models.Model):
     def save(self,*args,**kwargs):
         super().save(*args,**kwargs)
         img = Image.open(self.image.path)
-        if img.height > 200 or img.width > 200:
-            output_size = (150,150)
+        if img.height > 100 or img.width > 150:
+            output_size = (100,100)
             # resize previous image
             img.thumbnail(output_size)
             # override previous image
