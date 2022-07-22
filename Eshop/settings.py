@@ -138,3 +138,10 @@ BRAINTREE_MERCHANT_ID = config("Merchant_id")
 BRAINTREE_PUBLIC_KEY = config('Public_key')
 BRAINTREE_PRIVATE_KEY = config('Private_key')
 
+import braintree
+BRAINTREE_CONF = braintree.Configuration(
+    braintree.Environment.Sandbox,
+    BRAINTREE_MERCHANT_ID,
+    BRAINTREE_PUBLIC_KEY,
+    BRAINTREE_PRIVATE_KEY
+)
