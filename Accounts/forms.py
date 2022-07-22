@@ -2,23 +2,27 @@ from asyncore import read
 from django import forms
 from django.forms import ModelForm
 from Accounts.models import Customer
-from phonenumber_field.formfields import PhoneNumberField
 from django.contrib.auth.hashers import make_password
 
 class CustomerForm(ModelForm):
 
-    first_name = forms.CharField(max_length='20')
-    last_name = forms.CharField(max_length='20')
-
-    phone = PhoneNumberField(required = True)
-    email = forms.EmailField(required = True,widget=forms.EmailInput)
-    password = forms.CharField(max_length=15, min_length=4,widget=forms.PasswordInput())
-
-
+    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
+    password2 = forms.CharField(label='Repeat password', widget=forms.PasswordInput)
 
     class Meta:
         model = Customer
-        fields = ['first_name','last_name','phone','email','password']
+        fields = ('first_name','last_name','phone','email','password1','password2')
+        widgets={
+            'first_name': forms.TextInput(attrs={'class':'asd', 'placeholder':'First Name'}),
+            'last_name': forms.TextInput(attrs={'class':'asd', 'placeholder':'Last Name'}),
+            'address': forms.TextInput(attrs={'class':'asd', 'placeholder':'Address'}),
+            'phone': forms.TextInput(attrs={'class':'asd', 'placeholder':'Phone Number'}),
+            'email': forms.EmailInput(attrs={'class':'asd', 'placeholder':'Email'}),
+            'password1': forms.PasswordInput(attrs={'class':'asd', 'placeholder':'Password'}),
+            'password2': forms.PasswordInput(attrs={'class':'asd', 'placeholder':'Password'}),
+
+
+    }
 
 
 
@@ -52,10 +56,17 @@ class CustomerForm(ModelForm):
 
         return email
 
+    def clean_password2(self):
+        cd = self.cleaned_data
+        if cd['password1'] != cd['password2']:
+            raise forms.ValidationError('Password don\'t match.')
+        return cd['password2']
+
     def save(self, commit=True):
 
+        new_password = self.clean_password2()
         customer = super(CustomerForm, self).save(commit=False)
-        customer.password = make_password(customer.password)
+        customer.password = make_password(new_password)
         if(commit):
             customer.register()
 
