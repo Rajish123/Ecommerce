@@ -19,7 +19,7 @@ class SignUp(View):
             first_name= form.cleaned_data.get('first_name')
             form.save()
             messages.success(request,f"Account for {first_name} successfully created.")
-            return redirect('store:index')
+            return redirect('account:login')
         return render(request,'signup.html',{'form':form})
         
 
