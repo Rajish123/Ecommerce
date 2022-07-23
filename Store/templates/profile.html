@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Profile|{{customer.first_name}}{% endblock %}
+
+{% block content %}
+
+
+<h2 style="text-align:center">Profile</h2>
+
+<div class="card">
+  <img src="{% static '/images/luffy.jpeg' %}" alt="John" style="width:100%">
+  <div>
+    <span>First Name:<p>{{customer.first_name}}</p></span>
+    <span>Last Name:<p>{{customer.last_name}}</p></span>
+    <span>Address:<p>{{customer.address}}</p></span>
+    <span>Contact:<p>{{customer.phone}}</p></span>
+    <span>Email:<p>{{customer.email}}</p></span>
+
+  </div>
+  <p><a href = "{% url 'account:update_profile' %}" class = 'button'>Update Profile</a></p>
+  <p><a href = "{% url 'account:change_password' %}" class = 'button'>Change Password</a></p>
+
+</div>
+{% endblock %}

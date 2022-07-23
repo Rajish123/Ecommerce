@@ -8,11 +8,13 @@
 {% load cart %}
 {% load custom_filter %}
 
-{% if messages %}
-  {% for message in messages %}
-      {{message}}
-  {% endfor %}
-{% endif %}
+<div id = "messagebox">
+  {% if messages %}
+    {% for message in messages %}
+        {{message}}
+    {% endfor %}
+  {% endif %}
+</div>
 
 {% comment %} <section id="page-header">
   <h2>#Stay Home</h2>

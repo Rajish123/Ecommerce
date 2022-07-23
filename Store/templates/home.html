@@ -10,11 +10,13 @@
 {% load cart %}
 {% load custom_filter %}
 
-{% if messages %}
-  {% for message in messages %}
-      {{message}}
-  {% endfor %}
-{% endif %}
+<div id = "messagebox">
+  {% if messages %}
+    {% for message in messages %}
+        {{message}}
+    {% endfor %}
+  {% endif %}
+</div>
 
 <section id="shoe">
   <h4>Trade-in-Offer</h4>

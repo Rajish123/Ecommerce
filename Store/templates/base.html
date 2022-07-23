@@ -203,8 +203,23 @@
                 float: right;
                 padding-top: 16px;
             }
-           
-
+            .card {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                max-width: 300px;
+                margin: auto;
+                text-align: center;
+                font-family: arial;
+            }
+              
+            .proflie_title {
+                color: grey;
+                font-size: 18px;
+            }
+            .profile a {
+                text-decoration: none;
+                font-size: 22px;
+                color: black;
+            }
 
         </style>
 
@@ -230,7 +245,9 @@
                         <li><a href="{% url 'store:index' %}">Shop</a></li>
                         <li><a href="{% url 'order:orders' %}">Order</a></li>
                         <li><a href="{% url 'account:logout' %}">Logout</a></li>
-                        <li><a href="{% url 'store:cart' %}"><i class="fa-solid fa-cart-shopping"></i>Cart</a></li>
+                        <li><a href="{% url 'store:cart' %}"><i class="fa-solid fa-cart-shopping"></i>Cart<h2>{{cart_count}}</h2></a></li>
+                        <li><a href="{% url 'account:profile' %}">Profile</a></li>
+
                     {% else %}
                         <li><a href="{% url 'store:home' %}">Home</a></li>
                         <li><a href="{% url 'store:index' %}">Shop</a></li>
