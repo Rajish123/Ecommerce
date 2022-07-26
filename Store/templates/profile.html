@@ -5,17 +5,24 @@
 
 {% block content %}
 
+<div id = "messagebox">
+  {% if messages %}
+    {% for message in messages %}
+        {{message}}
+    {% endfor %}
+  {% endif %}
+</div>
 
 <h2 style="text-align:center">Profile</h2>
 
-<div class="card">
+<div class="card1">
   <img src="{% static '/images/luffy.jpeg' %}" alt="John" style="width:100%">
   <div>
-    <span>First Name:<p>{{customer.first_name}}</p></span>
-    <span>Last Name:<p>{{customer.last_name}}</p></span>
-    <span>Address:<p>{{customer.address}}</p></span>
-    <span>Contact:<p>{{customer.phone}}</p></span>
-    <span>Email:<p>{{customer.email}}</p></span>
+    <span>First Name:{{customer.first_name}}</span><br>
+    <span>Last Name:{{customer.last_name}}</span><br>
+    <span>Address:{{customer.address}}</span><br>
+    <span>Contact:{{customer.phone}}</span><br>
+    <span>Email:{{customer.email}}</span><br>
 
   </div>
   <p><a href = "{% url 'account:update_profile' %}" class = 'button'>Update Profile</a></p>
@@ -23,3 +30,4 @@
 
 </div>
 {% endblock %}
+
