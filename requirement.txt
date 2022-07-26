@@ -1,0 +1,13 @@
+asgiref==3.5.2
+braintree==4.15.2
+certifi==2022.6.15
+charset-normalizer==2.1.0
+Django==4.0.5
+django-phonenumber-field==6.3.0
+idna==3.3
+phonenumbers==8.12.50
+Pillow==9.2.0
+python-decouple==3.6
+requests==2.28.1
+sqlparse==0.4.2
+urllib3==1.26.10
