@@ -121,19 +121,6 @@ class UpdateProfileForm(forms.ModelForm):
 
         return last_name
 
-    def clean_phone(self):
-        phone = self.cleaned_data.get('phone')
-        if Customer.objects.filter(phone = phone).exists():
-            raise forms.ValidationError("Phone number already exists")
-        return phone
-
-    def clean_email(self):
-        email = self.cleaned_data.get('email')
-        if Customer.objects.filter(email=email).exists():
-            raise forms.ValidationError("Email already exists")
-
-        return email
-
     def save(self,commit = True):
         customer = super(UpdateProfileForm, self).save(commit=False)
 
