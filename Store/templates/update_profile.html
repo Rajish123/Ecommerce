@@ -5,13 +5,12 @@
 {% block content %}
 
 <div id = "messagebox">
-    {% if messages %}
-      {% for message in messages %}
-          {{message}}
-      {% endfor %}
-    {% endif %}
+  {% if messages %}
+    {% for message in messages %}
+        {{message}}
+    {% endfor %}
+  {% endif %}
 </div>
-
 <p>Use the form below to change your passsword.</p>
 <form method="post" id="" action="">
   {{ form.as_p }}
