@@ -2,19 +2,18 @@
 {% block content %}
 
 <div class="auth-content"> 
+    <div class="form-container">
 
-    <h1 class="form-title">Create an Account</h1>
-    <br><br><br>
-    <form method="post">
-        {% csrf_token %}
-    <div class="container">
-        {{form.as_p}}
-        <input type="submit" class="btn" value="Sign Up">
-        <br><br>
-        <p>Already have an account? <a href="">Login</a></p>
+        <form method="post">
+            {% csrf_token %}
+            <h2>SignUp Form</h2>
+            {{form.as_p}}
+            <input type="submit" class="btn" value="Sign Up">
+            <br><br>
+            <p>Already have an account? <a href="">Login</a></p>
         
+        </form>
     
     </div>
-    </form>
 </div>
 {% endblock content %}

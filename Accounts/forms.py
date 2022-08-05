@@ -13,13 +13,13 @@ class CustomerForm(ModelForm):
         model = Customer
         fields = ('first_name','last_name','address','phone','email','password1','password2')
         widgets={
-            'first_name': forms.TextInput(attrs={'class':'asd', 'placeholder':'First Name'}),
-            'last_name': forms.TextInput(attrs={'class':'asd', 'placeholder':'Last Name'}),
-            'address': forms.TextInput(attrs={'class':'asd', 'placeholder':'Address'}),
-            'phone': forms.TextInput(attrs={'class':'asd', 'placeholder':'Phone Number'}),
-            'email': forms.EmailInput(attrs={'class':'asd', 'placeholder':'Email'}),
-            'password1': forms.PasswordInput(attrs={'class':'asd', 'placeholder':'Password'}),
-            'password2': forms.PasswordInput(attrs={'class':'asd', 'placeholder':'Password'}),
+            'first_name': forms.TextInput(attrs={'class':'form-control'}),
+            'last_name': forms.TextInput(attrs={'class':'form-control'}),
+            'address': forms.TextInput(attrs={'class':'form-control'}),
+            'phone': forms.TextInput(attrs={'class':'form-control',}),
+            'email': forms.EmailInput(attrs={'class':'form-control'}),
+            # 'password1': forms.PasswordInput(attrs={'class':'form-control', 'placeholder':'Password'}),
+            # 'password2': forms.PasswordInput(attrs={'class':'form-control', 'placeholder':'Password'}),
     }
 
         # this function will be used for the validation

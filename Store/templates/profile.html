@@ -18,11 +18,11 @@
 <div class="card1">
   <img src="{% static '/images/luffy.jpeg' %}" alt="John" style="width:100%">
   <div>
-    <span>First Name:{{customer.first_name}}</span><br>
-    <span>Last Name:{{customer.last_name}}</span><br>
-    <span>Address:{{customer.address}}</span><br>
-    <span>Contact:{{customer.phone}}</span><br>
-    <span>Email:{{customer.email}}</span><br>
+    <span>First Name:{{customer.first_name}}</span><br><br>
+    <span>Last Name:{{customer.last_name}}</span><br><br>
+    <span>Address:{{customer.address}}</span><br><br>
+    <span>Contact:{{customer.phone}}</span><br><br>
+    <span>Email:{{customer.email}}</span><br><br>
 
   </div>
   <p><a href = "{% url 'account:update_profile' %}" class = 'button'>Update Profile</a></p>

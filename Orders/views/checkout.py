@@ -44,7 +44,6 @@ class CheckOut(View):
         # get all product ids
         products = Product.get_product_by_id(list(request.session.get('cart').keys()))
         total = total_payment(request)
-        print(total)
         nonce = request.POST.get('payment_method_nonce', None)
         # create and submit transaction
         result = gateway.transaction.sale ({
@@ -54,10 +53,7 @@ class CheckOut(View):
                 'submit_for_settlement': True
             }
         })
-        print(result)
         if result.is_success:
-
-
         # iterate all product to get price and to create order object
             for product in products:
                 order = Order(

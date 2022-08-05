@@ -11,5 +11,7 @@ class OrderView(View):
     def get(self, request):
         # return customer id
         customer = request.session.get('customer')
+        products = request.session.get('cart').keys()
+        print(f'total products are = {products}')
         orders = Order.get_orders_by_customer(customer)
         return render(request,'orders.html',{'orders':orders})

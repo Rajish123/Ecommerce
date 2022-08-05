@@ -142,6 +142,10 @@ p {
 #shoe p {
     color: rgb(82, 8, 8);
 }
+.btn-1 a {
+    text-decoration: none;
+}
+
 
 #shoe button {
     background-color: rgb(175, 133, 61);

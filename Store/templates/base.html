@@ -5,6 +5,20 @@
 
     <head>
         <style>
+            .form-container {
+                background-color: rgba(231,230,230,0.8);
+                width:400px;
+                display:flex;
+                justify-content: center;
+                align-items:center;
+                margin:0 auto;
+                flex-direction: column;
+                border-radius:10px;
+                padding: 40px;
+            }
+            .auth-content {
+                padding:25px;
+            }
             .box {
                 width: 400px;
                 padding: 50px;
@@ -61,8 +75,22 @@
                 justify-content: center;
             }
             
-            #product2 .category {
+            #product2 .category  h2{
                 padding: 30px;
+            }
+
+            #product2 .category li,
+            #product2 .category li a {
+                text-decoration: none;
+                list-style: none;
+                font-size: 18px;
+                color: #000;
+                padding: 10px;
+                border-bottom:1px solid #ccc;
+            }
+
+            #product2 .category li a:hover {
+                color: orange;
             }
             
             #product2 .pro-container {

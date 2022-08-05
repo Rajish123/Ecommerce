@@ -31,8 +31,6 @@ class Login(View):
             if flag:
                 # save user information in session after logging in
                 request.session['customer'] = customer.id
-                # request.session['email'] = customer.email
-                # print(request.session.get('email'))
                 # successful logged in
                 messages.success(request,f"Login Successful")
                 if Login.return_url:

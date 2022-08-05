@@ -22,10 +22,10 @@
   <h4>Trade-in-Offer</h4>
   <h2>Super value deals</h2>
   <h1>On all products</h1>
-  <p>save more with 25% discount</p>
-  <button>Shop Now</button>
+  {% comment %} <p>save more with 25% discount</p> {% endcomment %}
+  <button class = "btn-1"><a href = "{% url 'store:index' %}">Shop Now</a></button>
 </section>
-<section id="features" class="section-p1">
+{% comment %} <section id="features" class="section-p1">
   <div class="fe-box">
       <img src="{% static '/images/features/1.png' %}" alt="" width="200px" , height="200px">
       <h4>free delivery</h4>
@@ -46,30 +46,40 @@
       <img src="{% static '/images/features/5.jpg' %}" alt="" width="200px" , height="200px">
       <h4>Sales</h4>
   </div>
-</section>
+</section> {% endcomment %}
     <!-- Products-->
-    <section id="product1" class="section-p1">
+    {% comment %} <section id="product1" class="section-p1">
       <h2>Featured Products</h2>
       <p>Summer Collection New Modern Design</p>
       <div class="pro-container">
         {% for product in products|slice:":4" %}
-          <div class="pro">
+          <div class="pro" onclick="';">
               <img src="{{product.image.url}}" alt="">
               <div class="des">
-                  <span>{{product.category}}</span>
-                  <h3>{{product.name}}</h3>
-                  <h4>{{product.price|currency}}</h4>
+                <span>{{product.category}}</span>
+                <span>{{product.name}}</span>
+                <h4>{{product.price|currency}}</h4>
               </div>
+
           </div>
         {% endfor %}
       </div>
-  </section>
+  </section> {% endcomment %}
+        {% comment %} <div class="pro-container"> {% endcomment %}
+        {% comment %} {% for product in products|slice:":4" %} {% endcomment %}
+          {% comment %} <div class="pro"> {% endcomment %}
+              {% comment %} <img src="{{product.image.url}}" alt=""> {% endcomment %}
+              {% comment %} <div class="des"> {% endcomment %}
+                  {% comment %} <span>{{product.category}}</span> {% endcomment %}
+                  {% comment %} <h3>{{product.name}}</h3> {% endcomment %}
+                  {% comment %} <h4>{{product.price|currency}}</h4> {% endcomment %}
   <!--Banner-->
-  <section id="banner" class="section-m1">
+  {% comment %} <section id="banner" class="section-m1">
     <h2>Sale</h2>
     <h1>Up to <span>70%</span> off</h1>
     <button>Explore More</button>
-  </section>
+  </section> {% endcomment %}
+  {% comment %} <br><br><br>
   <section id="new" class="section-m1">
     <h1>New Arrival</h1>
     <p>Get the latest design shoes</p>
@@ -85,10 +95,10 @@
         </div>
       {% endfor %}
     </div>
-  </section>
+  </section> {% endcomment %}
 
   <!--banner-->
-  <section id="sm-banner" class="section-m1">
+  {% comment %} <section id="sm-banner" class="section-m1">
     <div class="banner-box">
         <h3>crazy deals</h3>
         <h1>buy 2 get 1 free</h1>
@@ -109,7 +119,7 @@
         <input type="text" placeholder="Your email Address">
         <button class="btn">Sign Up</button>
     </div>
-  </section>
+  </section> {% endcomment %}
 
 
 

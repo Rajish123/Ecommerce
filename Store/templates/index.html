@@ -24,7 +24,8 @@
   <div class="category">
       <h2>Category</h2>
       <ul>
-        {% for category in categories %}  
+        <li><a href = ""</a>All</li>
+        {% for category in categories %} 
           <li><a href = "/?category={{category.id}}">{{category.name}}</a></li>
           {% comment %} <h3>{{category.name}}</h3> {% endcomment %}
         {% endfor %}
@@ -57,7 +58,7 @@
               <div>
                   <form action="/#{{product.id}}" method = "POST">{% csrf_token %}
                     <input hidden type="text" value="{{product.id}}" name="product">
-                    <button type="submit" class="btn">Add to cart</button>
+                    <input type="submit" class="btn" value = "Add to cart">
                   </form>
               </div>
             </div>
