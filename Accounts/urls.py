@@ -5,7 +5,7 @@ from .views import signup,login,logout,profile,update_profile,change_password
 app_name = "account"
 
 urlpatterns = [
-    path('signup',signup.SignUp.as_view(), name = 'signup'),
+    path('signup/',signup.SignUp.as_view(), name = 'signup'),
     path('log',login.Login.as_view(), name = 'login'),
     path('logout',logout.logout,name = 'logout'),
     path('profile',profile.Profile.as_view(),name='profile'),
