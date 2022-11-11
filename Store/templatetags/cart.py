@@ -7,7 +7,6 @@ register = template.Library()
 def is_in_cart(product,cart):
     keys = cart.keys()
     for id in keys:
-        print(type(product.id))
         if int(id) == product.id:
             # if product already added in cart
             return True
