@@ -100,6 +100,13 @@ class UpdateProfileForm(forms.ModelForm):
     class Meta:
         model = Customer
         fields = ('first_name','last_name','address','phone','email')
+        widgets={
+            'first_name': forms.TextInput(attrs={'class':'form-control'}),
+            'last_name': forms.TextInput(attrs={'class':'form-control'}),
+            'address': forms.TextInput(attrs={'class':'form-control'}),
+            'phone': forms.TextInput(attrs={'class':'form-control',}),
+            'email': forms.EmailInput(attrs={'class':'form-control'})
+        }
 
     def clean_first_name(self):
         first_name = self.cleaned_data.get('first_name')
