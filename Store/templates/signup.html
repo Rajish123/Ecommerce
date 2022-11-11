@@ -4,8 +4,7 @@
 <div class="auth-content"> 
     <div class="form-container">
 
-        <form method="post">
-            {% csrf_token %}
+        <form method="post">{% csrf_token %}
             <h2>SignUp Form</h2>
             {{form.as_p}}
             <input type="submit" class="btn" value="Sign Up">

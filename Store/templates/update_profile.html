@@ -11,10 +11,15 @@
     {% endfor %}
   {% endif %}
 </div>
-<p>Use the form below to change your passsword.</p>
-<form method="post" id="" action="">
-  {{ form.as_p }}
-  <p><input type="submit" name="" value="Change" /></p>
-  {% csrf_token %}
-</form>
+<div class="auth-content"> 
+  <div class="form-container">
+
+    <p>Use the form below to update your profile.</p>
+    <form method="post" id="" action="">
+      {{ form.as_p }}
+      <p><input type="submit" class = "btn" name="" value="Change" /></p>
+      {% csrf_token %}
+    </form>
+  </div>
+</div>
 {% endblock %}
